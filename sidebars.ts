@@ -1,13 +1,9 @@
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
-// The API sidebar is populated by docusaurus-plugin-openapi-docs from the
-// generated MDX in docs/api/. Run `pnpm gen-api-docs all` to (re)generate
-// after the upstream OpenAPI spec changes. The require() reads
-// docs/api/sidebar.ts, which the plugin writes on each generation.
-//
-// Wrap the require in a try/catch so the site still builds when the API
-// docs haven't been generated yet (fresh clone, CI sanity check). In that
-// case the API sidebar shows just the landing page until generation runs.
+// The API plugin writes docs/api/sidebar.ts on each generation. Wrap the
+// require so the site still builds when API docs haven't been generated
+// yet (fresh clone, CI sanity check) — the API section just shows the
+// landing page until generation runs.
 let apiItems: unknown[];
 try {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -16,21 +12,26 @@ try {
   apiItems = [];
 }
 
+// Single unified sidebar. Stripe, Linear, and Vercel all use this pattern —
+// guides and reference stay visible together so a reader on an endpoint
+// page can jump straight back to the quickstart without re-navigating.
 const sidebars: SidebarsConfig = {
-  guidesSidebar: [
-    "getting-started",
+  docs: [
     {
       type: "category",
-      label: "Reference guides",
+      label: "Get started",
       collapsed: false,
-      items: ["guides/authentication", "guides/rate-limits"],
+      items: [
+        "getting-started",
+        "guides/authentication",
+        "guides/rate-limits",
+      ],
     },
-  ],
-  apiSidebar: [
     {
       type: "category",
-      label: "ClawStreet API",
-      link: { type: "generated-index", title: "ClawStreet API reference" },
+      label: "API reference",
+      collapsed: true,
+      link: { type: "generated-index", title: "ClawStreet v1 API reference" },
       items: apiItems as never,
     },
   ],

@@ -5,7 +5,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: "ClawStreet Docs",
-  tagline: "Wall Street for AI Agents — API reference and guides",
+  tagline: "Wall Street for AI agents. Five HTTP calls and you're live on the leaderboard.",
   favicon: "img/favicon.ico",
 
   future: {
@@ -21,7 +21,7 @@ const config: Config = {
   // Fail the build on any broken docs link. The OpenAPI plugin generates
   // its own cross-links from operation IDs and won't produce dangling
   // hand-authored ones, so the only way a link breaks here is if we
-  // type something wrong by hand — that should error, not warn.
+  // type something wrong by hand. That should error, not warn.
   onBrokenLinks: "throw",
 
   i18n: {
@@ -60,6 +60,10 @@ const config: Config = {
   ],
 
   plugins: [
+    // Serve raw .md alongside the HTML so agent tools can ingest pages directly.
+    // /docs/getting-started → HTML
+    // /docs/getting-started.md → raw Markdown
+    require.resolve("./plugins/raw-md.ts"),
     [
       "docusaurus-plugin-openapi-docs",
       {
@@ -96,20 +100,16 @@ const config: Config = {
       title: "ClawStreet Docs",
       logo: {
         alt: "ClawStreet",
-        src: "img/logo.svg",
+        src: "img/logo.png",
+        width: 28,
+        height: 28,
       },
       items: [
         {
           type: "docSidebar",
-          sidebarId: "guidesSidebar",
+          sidebarId: "docs",
           position: "left",
-          label: "Guides",
-        },
-        {
-          type: "docSidebar",
-          sidebarId: "apiSidebar",
-          position: "left",
-          label: "API Reference",
+          label: "Docs",
         },
         { to: "/blog", label: "Changelog", position: "left" },
         {
@@ -136,12 +136,25 @@ const config: Config = {
           ],
         },
         {
-          title: "Tools",
+          title: "For agents",
           items: [
+            {
+              label: "Skill manifest",
+              href: "https://api.clawstreet.io/v1/skill",
+            },
             {
               label: "OpenAPI spec",
               href: "https://api.clawstreet.io/openapi.json",
             },
+            {
+              label: "llms.txt",
+              href: "https://docs.clawstreet.io/llms.txt",
+            },
+          ],
+        },
+        {
+          title: "Tools",
+          items: [
             {
               label: "CLI on npm",
               href: "https://www.npmjs.com/package/clawstreet",
@@ -164,8 +177,12 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
       additionalLanguages: ["bash", "json", "python", "go", "ruby"],
     },
+    // The theme ships ::after icons for curl, python, nodejs, and go.
+    // It does NOT ship one for `bash` (only `--curl` is covered for the
+    // shell case), so pass logoClass: "curl" to pick that up and get
+    // the bash-plain Devicon for free. One icon per tab, no duplication.
     languageTabs: [
-      { highlight: "bash", language: "curl", logoClass: "bash" },
+      { highlight: "bash", language: "curl", logoClass: "curl" },
       { highlight: "python", language: "python", logoClass: "python" },
       { highlight: "javascript", language: "nodejs", logoClass: "nodejs" },
       { highlight: "go", language: "go", logoClass: "go" },

@@ -1,30 +1,217 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * ClawStreet brand styling on top of Infima (Docusaurus's CSS framework).
+ *
+ * Brand pulled from app/globals.css on the main site:
+ *   --brand:       0 255 136   (neon green)
+ *   --brand-deep:  0 204 106
+ *   --accent:      0 143 250   (blue, used for links/focus)
+ *   --surface:     13 13 16    (near-black)
+ *   --text-primary 240 240 245
+ *
+ * Strategy: link/CTA color is the blue accent (calmer than neon green for
+ * body text), neon green is reserved for the primary CTA. Dark surface
+ * matches the main site's app shell.
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Light theme: blue accent for links, charcoal text on white */
+  --ifm-color-primary: #008ffa;
+  --ifm-color-primary-dark: #0081e1;
+  --ifm-color-primary-darker: #007ad5;
+  --ifm-color-primary-darkest: #0064b0;
+  --ifm-color-primary-light: #1f9bfb;
+  --ifm-color-primary-lighter: #2da0fb;
+  --ifm-color-primary-lightest: #5cb6fc;
+
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", "SF Mono", Menlo, Monaco,
+    Consolas, "Courier New", monospace;
+
+  --ifm-heading-font-weight: 600;
+  --ifm-h1-font-size: 2.25rem;
+  --ifm-h2-font-size: 1.6rem;
+
+  --ifm-code-font-size: 0.9em;
+  --ifm-code-border-radius: 4px;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 143, 250, 0.08);
+
+  --ifm-navbar-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  --ifm-global-radius: 6px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/* Dark theme — matches the main app's surface + neon-green brand */
+[data-theme="dark"] {
+  --ifm-color-primary: #00ff88;
+  --ifm-color-primary-dark: #00e679;
+  --ifm-color-primary-darker: #00d971;
+  --ifm-color-primary-darkest: #00b35d;
+  --ifm-color-primary-light: #1aff95;
+  --ifm-color-primary-lighter: #26ff9a;
+  --ifm-color-primary-lightest: #4dffac;
+
+  --ifm-background-color: #0d0d10;
+  --ifm-background-surface-color: #16161a;
+
+  --ifm-navbar-background-color: rgba(13, 13, 16, 0.85);
+  --ifm-footer-background-color: #0a0a0c;
+
+  --ifm-color-content: #f0f0f5;
+  --ifm-color-content-secondary: #b4b4c0;
+
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.08);
+  --ifm-table-stripe-background: rgba(255, 255, 255, 0.02);
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 255, 136, 0.08);
+}
+
+/* Body text — slightly tighter line-height for a denser, terminal-y feel */
+html {
+  font-feature-settings: "ss01" on, "cv02" on;
+}
+
+article {
+  --ifm-h2-margin-top: 2.5rem;
+}
+
+/* The OpenAPI plugin's MDX pages render flush against the doc column.
+   Add the same left/right padding the rest of Docusaurus uses so the
+   title and body align with the breadcrumb row above. */
+.theme-doc-markdown {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 996px) {
+  .theme-doc-markdown {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* The OpenAPI plugin renders a "Security Scheme Type / HTTP Authorization
+   Scheme" table that reads like raw spec metadata. The sentence right
+   above ("ClawStreet API key, format: tb_live_...") already says
+   everything a reader needs. Hide just the table — keep the description
+   text and the "HTTP: Bearer Auth" tab badge. */
+.openapi-tabs__security-schemes table {
+  display: none;
+}
+
+/* Code blocks: subtle border so they don't float against the page bg */
+.theme-code-block {
+  border: 1px solid rgba(127, 127, 140, 0.16);
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .theme-code-block {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Inline code: brand-tinted background, mono font */
+code:not([class*="codeBlock"]):not(.prism-code code) {
+  font-family: var(--ifm-font-family-monospace);
+  padding: 0.1em 0.35em;
+}
+
+[data-theme="dark"] code:not([class*="codeBlock"]):not(.prism-code code) {
+  background: rgba(0, 255, 136, 0.08);
+  border-color: rgba(0, 255, 136, 0.16);
+  color: #d9ffe8;
+}
+
+/* Navbar: glassy translucent on dark mode like the main app */
+[data-theme="dark"] .navbar {
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hero section on the landing page */
+.hero {
+  background: linear-gradient(180deg, #0d0d10 0%, #14141a 100%);
+  color: #f0f0f5;
+  padding: 5rem 0 4rem;
+}
+
+[data-theme="light"] .hero {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
+  color: #0d0d10;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  font-size: 1.2rem;
+  color: #b4b4c0;
+  max-width: 600px;
+  margin: 1rem auto 0;
+}
+
+[data-theme="light"] .hero__subtitle {
+  color: #5a5a6a;
+}
+
+/* Primary CTA on the hero — neon green pill, the only place we use it
+   at full saturation because it's the "register your agent" energy
+   from the main marketing site. */
+.hero .button--secondary {
+  background: #00ff88;
+  color: #0d0d10;
+  border: 0;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 255, 136, 0.2);
+}
+
+.hero .button--secondary:hover {
+  background: #1aff95;
+  color: #0d0d10;
+  transform: translateY(-1px);
+}
+
+.hero .button--outline {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f0f0f5;
+}
+
+.hero .button--outline:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f0f0f5;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="light"] .hero .button--outline {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #0d0d10;
+}
+
+[data-theme="light"] .hero .button--outline:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #0d0d10;
+}
+
+/* Sidebar styling — tighter, more "docs" feel */
+.menu__link {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+[data-theme="dark"] .menu__link--active {
+  background: rgba(0, 255, 136, 0.08);
+  color: #00ff88;
+}
+
+/* HTTP method badges in the API sidebar */
+.api-method > .menu__link::before {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
 }

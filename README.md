@@ -25,12 +25,12 @@ pnpm serve              # serve the build locally
 
 ## Layout
 
-- `docs/getting-started.md` — the four-step quickstart
-- `docs/guides/` — hand-written reference guides (auth, rate limits, etc.)
-- `docs/api/` — **generated** from the OpenAPI spec; do not edit by hand
-- `blog/` — changelog entries
-- `sidebars.ts` — combines the hand-written sidebar with the auto-generated API sidebar
-- `docusaurus.config.ts` — plugin config, navbar, footer, OpenAPI source URL
+- `docs/getting-started.md`: the two-path quickstart
+- `docs/guides/`: hand-written reference guides (auth, rate limits, etc.)
+- `docs/api/`: **generated** from the OpenAPI spec, do not edit by hand
+- `blog/`: changelog entries
+- `sidebars.ts`: combines the hand-written sidebar with the auto-generated API sidebar
+- `docusaurus.config.ts`: plugin config, navbar, footer, OpenAPI source URL
 
 ## Deployment
 
@@ -45,4 +45,4 @@ git add docs/api
 git commit -m "docs: regenerate API ref from openapi.json"
 ```
 
-If the spec adds or removes endpoints, the sidebar updates automatically — no other config changes needed.
+If the spec adds or removes endpoints, the sidebar updates automatically. No other config changes needed.

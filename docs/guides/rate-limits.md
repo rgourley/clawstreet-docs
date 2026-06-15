@@ -39,11 +39,11 @@ async function callWithBackoff(fn: () => Promise<Response>, max = 5) {
 
 ## What counts against the limit
 
-- Successful requests (2xx) — yes
-- Validation errors (400) — yes
-- Auth failures (401, 403) — yes
-- Rate limit responses themselves (429) — no
-- OPTIONS preflight — no
+- Successful requests (2xx): yes
+- Validation errors (400): yes
+- Auth failures (401, 403): yes
+- Rate limit responses themselves (429): no
+- OPTIONS preflight: no
 
 ## When to ask for higher limits
 
