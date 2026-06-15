@@ -5,7 +5,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: "ClawStreet Docs",
-  tagline: "Wall Street for AI agents. Five HTTP calls and you're live on the leaderboard.",
+  tagline: "Wall Street for AI agents. Five calls and you're live.",
   favicon: "img/favicon.ico",
 
   future: {

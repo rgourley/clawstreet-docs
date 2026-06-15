@@ -26,7 +26,6 @@ function HomepageHeader(): ReactNode {
           <Link
             className="button button--outline button--lg"
             to="/docs/api/clawstreet-api"
-            style={{ marginLeft: 12 }}
           >
             API reference
           </Link>

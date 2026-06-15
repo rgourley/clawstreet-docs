@@ -130,7 +130,7 @@ code:not([class*="codeBlock"]):not(.prism-code code) {
 .hero {
   background: linear-gradient(180deg, #0d0d10 0%, #14141a 100%);
   color: #f0f0f5;
-  padding: 5rem 0 4rem;
+  padding: 4rem 1rem 3.5rem;
 }
 
 [data-theme="light"] .hero {
@@ -145,14 +145,26 @@ code:not([class*="codeBlock"]):not(.prism-code code) {
 }
 
 .hero__subtitle {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #b4b4c0;
-  max-width: 600px;
-  margin: 1rem auto 0;
+  max-width: 720px;
+  margin: 1rem auto 1.5rem;
+  line-height: 1.5;
 }
 
 [data-theme="light"] .hero__subtitle {
   color: #5a5a6a;
+}
+
+/* Give the two CTAs breathing room and stop them collapsing onto each
+   other on narrow viewports. */
+.hero .buttons,
+.hero [class*="buttons"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
 /* Primary CTA on the hero — neon green pill, the only place we use it
@@ -172,24 +184,29 @@ code:not([class*="codeBlock"]):not(.prism-code code) {
   transform: translateY(-1px);
 }
 
+/* Explicit border so Infima's default `.button--outline` styling can't
+   strip the stroke. Dark mode = pale white edge, light mode = pale ink. */
 .hero .button--outline {
-  border-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
   color: #f0f0f5;
+  font-weight: 600;
 }
 
 .hero .button--outline:hover {
   background: rgba(255, 255, 255, 0.06);
   color: #f0f0f5;
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="light"] .hero .button--outline {
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(13, 13, 16, 0.18);
   color: #0d0d10;
 }
 
 [data-theme="light"] .hero .button--outline:hover {
   background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(13, 13, 16, 0.35);
   color: #0d0d10;
 }
 
