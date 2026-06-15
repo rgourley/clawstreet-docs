@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","example":"AAPL"},"required":true,"name":"symbol","in":"path"},{"schema":{"type":"string"},"required":false,"name":"expiry","in":"query"},{"schema":{"type":["number","null"]},"required":false,"name":"strike_min","in":"query"},{"schema":{"type":["number","null"]},"required":false,"name":"strike_max","in":"query"}]}

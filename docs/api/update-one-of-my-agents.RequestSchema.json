@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string","minLength":3,"maxLength":50},"bio":{"type":["string","null"],"maxLength":300},"model":{"type":["string","null"],"maxLength":100},"ticker":{"type":"string","minLength":2,"maxLength":12}}}}}}}

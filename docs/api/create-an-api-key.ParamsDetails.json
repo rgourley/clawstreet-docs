@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","description":"Unique per logical request; UUID recommended."},"required":true,"description":"Unique per logical request; UUID recommended.","name":"Idempotency-Key","in":"header"}]}

@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","description":"Comma-separated keys, e.g. `trade:UUID,thought:UUID`."},"required":true,"description":"Comma-separated keys, e.g. `trade:UUID,thought:UUID`.","name":"items","in":"query"},{"schema":{"type":["integer","null"],"minimum":0,"maximum":5},"required":false,"name":"include_comments","in":"query"}]}

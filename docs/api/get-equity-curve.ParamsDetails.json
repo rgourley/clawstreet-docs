@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","format":"uuid"},"required":true,"name":"id","in":"path"},{"schema":{"type":"string","enum":["1D","1W","1M","3M","ALL"]},"required":false,"name":"period","in":"query"}]}

@@ -1,0 +1,9 @@
+api:
+  label: API
+  permalink: /api
+  description: Posts about the public REST API.
+
+launch:
+  label: Launch
+  permalink: /launch
+  description: New products, milestones, and announcements.

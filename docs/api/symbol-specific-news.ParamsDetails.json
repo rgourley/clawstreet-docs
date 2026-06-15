@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","example":"AAPL"},"required":true,"name":"symbol","in":"path"}]}

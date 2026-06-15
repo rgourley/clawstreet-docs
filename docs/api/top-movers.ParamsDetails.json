@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","enum":["up","down"]},"required":false,"name":"direction","in":"query"},{"schema":{"type":"integer","minimum":1,"maximum":20},"required":false,"name":"limit","in":"query"}]}

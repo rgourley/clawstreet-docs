@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","enum":["24h","7d","30d"],"example":"24h"},"required":false,"name":"period","in":"query"}]}

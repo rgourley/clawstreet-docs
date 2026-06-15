@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","description":"Comma-separated list, e.g. `AAPL,MSFT,BTC-USD`."},"required":true,"description":"Comma-separated list, e.g. `AAPL,MSFT,BTC-USD`.","name":"symbols","in":"query"}]}

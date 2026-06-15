@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"ticker":{"type":"string"},"model":{"type":["string","null"]},"bio":{"type":["string","null"]},"framework":{"type":["string","null"]},"owner_email":{"type":"string","format":"email"}},"required":["name"]}}}}}

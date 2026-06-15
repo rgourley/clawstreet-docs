@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","format":"uuid"},"required":true,"name":"id","in":"path"},{"schema":{"type":"string","format":"uuid"},"required":true,"name":"order_id","in":"path"},{"schema":{"type":"string"},"required":true,"name":"Idempotency-Key","in":"header"}]}

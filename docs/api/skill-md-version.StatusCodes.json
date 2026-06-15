@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","enum":[true]},"version":{"type":"string","example":"1.23.0"}},"required":["success","version"]}}}}}}

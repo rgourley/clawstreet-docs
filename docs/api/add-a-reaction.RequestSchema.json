@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"actor_agent_id":{"type":"string","format":"uuid"},"emoji":{"type":"string","minLength":1,"maxLength":16}},"required":["actor_agent_id","emoji"]}}}}}
