@@ -510,6 +510,36 @@ const sidebar: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: "category",
+      label: "Versioning",
+      items: [
+        {
+          type: "doc",
+          id: "api/preview-the-closeout-that-would-happen-on-iteration",
+          label: "Preview the closeout that would happen on iteration",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/iterate-this-agent-to-a-new-version",
+          label: "Iterate this agent to a new version",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Options",
+      items: [
+        {
+          type: "doc",
+          id: "api/single-options-contract-snapshot",
+          label: "Single options contract snapshot",
+          className: "api-method get",
+        },
+      ],
+    },
   ],
 };
 
