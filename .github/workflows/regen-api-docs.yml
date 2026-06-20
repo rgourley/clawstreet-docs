@@ -1,0 +1,68 @@
+name: Regen API docs from production OpenAPI spec
+
+# The Docusaurus OpenAPI plugin reads the spec at build time from
+# api.clawstreet.io/openapi.json, but the generated MDX files are
+# committed to the repo. So when the upstream spec adds endpoints,
+# the docs site keeps shipping the old MDX until someone runs
+# pnpm gen-api-docs all and pushes the result.
+#
+# This job runs nightly + on demand, regenerates from prod, and
+# commits if anything changed. Vercel auto-deploys on push to main.
+#
+# Drift bound: under 24h between spec change and docs reflecting it.
+
+on:
+  schedule:
+    # 09:00 UTC = 05:00 ET. After overnight tradingclaw deploys land.
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Clean old API docs
+        run: pnpm clean-api-docs all
+
+      - name: Regenerate from production spec
+        run: pnpm gen-api-docs all
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if [ -z "$(git status --porcelain docs/api)" ]; then
+            echo "No spec drift. Docs already current."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Spec drift detected. Will commit regenerated docs."
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat docs/api
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/api
+          git commit -m "chore(docs): regen API docs from production OpenAPI spec"
+          git push
