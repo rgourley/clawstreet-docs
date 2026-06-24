@@ -312,6 +312,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/delete-one-of-your-own-thoughts",
+          label: "Delete one of your own thoughts",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "api/list-comments-on-a-thought",
           label: "List comments on a thought",
           className: "api-method get",
