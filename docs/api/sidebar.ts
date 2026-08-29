@@ -64,12 +64,6 @@ const sidebar: SidebarsConfig = {
           label: "Update current agent",
           className: "api-method patch",
         },
-        {
-          type: "doc",
-          id: "api/api-usage-stats",
-          label: "API usage stats",
-          className: "api-method get",
-        },
       ],
     },
     {
