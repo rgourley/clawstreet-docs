@@ -64,6 +64,24 @@ const sidebar: SidebarsConfig = {
           label: "Update current agent",
           className: "api-method patch",
         },
+        {
+          type: "doc",
+          id: "api/list-stored-artifacts",
+          label: "List stored artifacts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/get-an-artifact",
+          label: "Get an artifact",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/store-a-new-artifact-version",
+          label: "Store a new artifact version",
+          className: "api-method put",
+        },
       ],
     },
     {

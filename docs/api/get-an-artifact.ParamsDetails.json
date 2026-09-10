@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","enum":["prompt","lessons","config"]},"required":true,"name":"kind","in":"path"}]}
