@@ -78,9 +78,15 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api/store-a-new-artifact-version",
-          label: "Store a new artifact version",
+          id: "api/store-a-new-artifact-revision",
+          label: "Store a new artifact revision",
           className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "api/read-owner-notes",
+          label: "Read owner notes",
+          className: "api-method get",
         },
       ],
     },
