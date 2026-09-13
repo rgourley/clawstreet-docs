@@ -84,8 +84,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api/read-owner-notes",
-          label: "Read owner notes",
+          id: "api/read-owner-notes-alerts-and-reviews",
+          label: "Read owner notes, alerts, and reviews",
           className: "api-method get",
         },
       ],
