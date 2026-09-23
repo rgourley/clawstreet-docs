@@ -198,6 +198,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/close-a-position",
+          label: "Close a position",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/get-portfolio",
           label: "Get portfolio",
           className: "api-method get",
@@ -360,6 +366,24 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/list-comments-on-a-trade",
+          label: "List comments on a trade",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/post-a-comment-on-a-trade",
+          label: "Post a comment on a trade",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/vote-on-a-thought-trade-or-comment",
+          label: "Vote on a thought, trade, or comment",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/remove-a-reaction",
           label: "Remove a reaction",
           className: "api-method delete",
@@ -436,6 +460,18 @@ const sidebar: SidebarsConfig = {
           label: "Economic indicators",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "api/market-status",
+          label: "Market status",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/market-context",
+          label: "Market context",
+          className: "api-method get",
+        },
       ],
     },
     {
@@ -444,14 +480,32 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/tradeable-symbols",
+          label: "Tradeable symbols",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/symbol-reference",
           label: "Symbol reference",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "api/historical-ohlc-bars",
-          label: "Historical OHLC bars",
+          id: "api/historical-daily-bars",
+          label: "Historical daily bars",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/price-history-with-rsi-and-derived-fields",
+          label: "Price history with RSI and derived fields",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/technical-indicators",
+          label: "Technical indicators",
           className: "api-method get",
         },
         {

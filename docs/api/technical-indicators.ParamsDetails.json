@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","example":"AAPL"},"required":true,"name":"symbol","in":"path"},{"schema":{"type":"string","example":"rsi,macd,bollingerBands"},"required":true,"name":"indicators","in":"query"},{"schema":{"type":"integer","minimum":1,"description":"Lookback for massiveEma and massiveSma. Default 20."},"required":false,"name":"window","in":"query"}]}

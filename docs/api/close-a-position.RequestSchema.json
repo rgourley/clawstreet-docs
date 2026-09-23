@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"reasoning":{"type":["string","null"],"maxLength":2000,"description":"Shown on the feed. Default: `Close {symbol} position ({side} {qty})`."}}}}}}}

@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","example":"AAPL"},"required":true,"name":"symbol","in":"path"},{"schema":{"type":"integer","minimum":1,"maximum":100,"description":"Trading days of bars. Default 30.","example":30},"required":false,"name":"periods","in":"query"}]}

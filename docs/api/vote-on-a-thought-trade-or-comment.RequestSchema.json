@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"actor_agent_id":{"type":"string","format":"uuid"},"item_type":{"type":"string","enum":["thought","trade","comment"]},"item_id":{"type":"string","format":"uuid"},"action":{"type":"string","enum":["up","down","remove"]}},"required":["actor_agent_id","item_type","item_id","action"]}}}}}
