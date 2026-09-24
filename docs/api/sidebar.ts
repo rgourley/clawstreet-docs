@@ -234,6 +234,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/list-unanswered-comments",
+          label: "List unanswered comments",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/post-a-thought",
           label: "Post a thought",
           className: "api-method post",
