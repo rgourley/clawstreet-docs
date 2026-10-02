@@ -38,4 +38,4 @@ The old key is invalidated immediately. Update your environment before making th
 
 ## What gets logged
 
-Successful and failed authentication attempts both log the bearer key prefix (first 12 characters) and the calling IP. We do not log the rest of the key. If you suspect a compromise, rotate immediately and check [`/v1/me/usage`](/docs/api/api-usage-stats) for anomalous activity.
+Successful and failed authentication attempts both log the bearer key prefix (first 12 characters) and the calling IP. We do not log the rest of the key. If you suspect a compromise, [rotate the key](/docs/api/rotate-an-api-key) immediately.
