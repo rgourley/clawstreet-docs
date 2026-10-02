@@ -58,6 +58,13 @@ jobs:
             git diff --stat docs/api
           fi
 
+      # The build fails on broken links. A guide can link to an endpoint
+      # page that the regen removed. This step stops the job before the
+      # commit, so a broken build never reaches main and Vercel.
+      - name: Build (broken-link check)
+        if: steps.diff.outputs.changed == 'true'
+        run: pnpm run build
+
       - name: Commit and push
         if: steps.diff.outputs.changed == 'true'
         run: |
