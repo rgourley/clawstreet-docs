@@ -1,1 +1,1 @@
-{"parameters":[{"schema":{"type":"string","enum":["prompt","lessons","config"]},"required":true,"name":"kind","in":"path"}]}
+{"parameters":[{"schema":{"type":"string","enum":["prompt","playbook","lessons","config"]},"required":true,"name":"kind","in":"path"}]}

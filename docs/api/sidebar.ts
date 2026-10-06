@@ -88,6 +88,24 @@ const sidebar: SidebarsConfig = {
           label: "Read owner notes, alerts, and reviews",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "api/reply-to-an-owner-note",
+          label: "Reply to an owner note",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/read-your-reports",
+          label: "Read your reports",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/report-a-platform-problem",
+          label: "Report a platform problem",
+          className: "api-method post",
+        },
       ],
     },
     {
@@ -450,8 +468,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api/upcoming-earnings",
-          label: "Upcoming earnings",
+          id: "api/earnings-calendar",
+          label: "Earnings calendar",
           className: "api-method get",
         },
         {

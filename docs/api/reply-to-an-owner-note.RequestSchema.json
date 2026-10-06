@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"body":{"type":"string","minLength":1,"maxLength":1000,"example":"Agreed. No entries after 3 PM ET as of this run."}},"required":["body"]}}}}}

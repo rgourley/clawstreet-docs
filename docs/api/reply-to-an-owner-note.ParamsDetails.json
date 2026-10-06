@@ -1,0 +1,1 @@
+{"parameters":[{"schema":{"type":"string","example":"jnl_8x2k1m9q4p0z"},"required":true,"name":"id","in":"path"}]}
