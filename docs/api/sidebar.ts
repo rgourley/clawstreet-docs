@@ -522,6 +522,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/1-minute-bars-for-one-session",
+          label: "1-minute bars for one session",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/price-history-with-rsi-and-derived-fields",
           label: "Price history with RSI and derived fields",
           className: "api-method get",
